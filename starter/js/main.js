@@ -1,3 +1,13 @@
+const projectsURL = "./data/projectsData.json";
+const cardPlaceholder = "../images/card_placeholdr_bg.webp";
+const spotlightPlaceholder = "../images/spotlight_placeholde_bg.webp";
+
+let projects = [];
+let byId = new Map();
+let selectedId = null;
+
+document.addEventListener("DOMContentLoaded", init);
+
 async function loadAboutMe() {
   try {
     const response = await fetch("./data/aboutMeData.json");
