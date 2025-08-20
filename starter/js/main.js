@@ -106,7 +106,7 @@ async function loadProjects() {
   const list = document.getElementById("projectList"); // <sidebar id="projectList">
   if (!list) return;
 
-  const frag = document.createDocumentFragment();
+  const fragment = document.createDocumentFragment();
 
   projects.forEach((proj, i) => {
     const card = document.createElement("div");
@@ -128,12 +128,12 @@ async function loadProjects() {
     teaser.textContent = proj.short_description;
 
     card.append(h4, teaser);
-    frag.appendChild(card);
+    fragment.appendChild(card);
 
     if (i === 0) selectedId = proj.project_id;
   });
 
-  list.appendChild(frag);
+  list.appendChild(fragment);
   if (selectedId) updateSpotlight(selectedId);
 }
 
@@ -157,7 +157,7 @@ function normalizeProject(p) {
   };
 }
 
-/* ---------- Spotlight ---------- */
+//Spotlight
 function ensureSpotlightNodes() {
   const spotlight = document.getElementById("projectSpotlight");
   const titleBox = document.getElementById("spotlightTitles");
