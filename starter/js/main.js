@@ -1,8 +1,6 @@
 "use strict";
 
-/* =========================
-   Config (paths & fallbacks)
-========================= */
+//config paths and fallback paths
 const DATA_ROOT = "./starter/data/";
 const IMAGES_BASE = "./starter/images/";
 
@@ -12,16 +10,12 @@ const PROJECTS_URL = DATA_ROOT + "projectsData.json";
 const CARD_PLACEHOLDER = IMAGES_BASE + "card_placeholder_bg.webp";
 const SPOTLIGHT_PLACEHOLDER = IMAGES_BASE + "spotlight_placeholder_bg.webp";
 
-/* =========================
-   State
-========================= */
+//state
 let projects = [];
 let byId = new Map();
 let selectedId = null;
 
-/* =========================
-   Boot
-========================= */
+//boot
 document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
@@ -58,14 +52,12 @@ function setText(node, text) {
 }
 
 async function fetchJSON(url) {
-  const r = await fetch(url);
-  if (!r.ok) throw new Error(`${url} -> ${r.status}`);
-  return r.json();
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`${url} -> ${response.status}`);
+  return response.json();
 }
 
-/* =========================
-   About Me
-========================= */
+//about me
 async function loadAbout() {
   let data;
   try {
@@ -99,9 +91,7 @@ async function loadAbout() {
   about.append(p, headshotWrap);
 }
 
-/* =========================
-   Projects (cards + spotlight)
-========================= */
+//Projects (cards and spotlight)
 async function loadProjects() {
   let raw = [];
   try {
@@ -247,9 +237,7 @@ function removeAllAttrsExceptDataRole(el) {
   rm.forEach((n) => el.removeAttribute(n));
 }
 
-/* =========================
-   Events
-========================= */
+//events
 function wireCardEvents() {
   const list = document.getElementById("projectList");
   if (!list) return;
@@ -290,9 +278,7 @@ function wireArrows() {
   right.addEventListener("click", () => scroll(1));
 }
 
-/* =========================
-   Form validation
-========================= */
+//form validation
 function wireFormValidation() {
   const form = document.querySelector("form#formSection");
   if (!form) return;
