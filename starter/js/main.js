@@ -1,6 +1,6 @@
 "use strict";
 
-//config paths and fallback paths
+//config paths and fallbacks
 const DATA_ROOT = "./starter/data/";
 const IMAGES_BASE = "./starter/images/";
 
@@ -30,9 +30,7 @@ async function init() {
   }
 }
 
-/* =========================
-   Utils
-========================= */
+//ulilities
 // Take any path like "../images/foo.webp" or "starter/images/foo.webp"
 // and return "./starter/images/foo.webp"
 function toImagesBasePath(u) {
@@ -103,7 +101,7 @@ async function loadProjects() {
   projects = raw.map(normalizeProject);
   byId = new Map(projects.map((p) => [p.project_id, p]));
 
-  const list = document.getElementById("projectList"); // <sidebar id="projectList">
+  const list = document.getElementById("projectList"); // <sidebar id="projectList"
   if (!list) return;
 
   const fragment = document.createDocumentFragment();
